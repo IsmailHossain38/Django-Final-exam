@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class=" container text-center mt-4">
+    <h3 class="text-primary"> Classes</h3><hr>
+    <div class="row row-cols-auto">
+        {% for dt in category %}
+        <div class="form-check  bg-danger mx-2 ">
+            <label class="form-check-label p-2" for="{{dt.id}}">
+                <b><a href="{% url 'Category_slug' dt.slug %}" class="btn text-light ">{{dt.name}}</a></b>
+            </label>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="swiffy-slider slider-item-show3 container">
+    <hr>
+    <h2 class='text-center text-primary '>Tutors</h2>    
+    <hr>
+    <ul class="slider-container">           
+        {% for dt in data %}
+            <li class='m-auto text-center'>
+                <div class="card mx-3 pt-3 text-dark">
+                    <img src="{{dt.image.url}}" class="card-img-top m-auto rounded-0 " alt="car-image" style="max-width: 40%;height: 20%;">
+                    <div class="card-body  ">
+                        <h5 class="card-title">Tutor Name: {{dt.name}}</h5>
+                        <p class="card-text title ">Education : {{dt.education}}</p>
+                        <small>Teaching Experience : {{dt.teaching_experience}}</small><br>
+                        <small> <b> Teaching Subject : {{dt.subject}} </b></small><br>
+                        <small>Fees : {{dt.fee}}</small>
+                        <br>
+                        <br>
+                        <a href="{% url 'details' dt.id %}" class="btn btn-sm mb-2 btn-primary">About Tutor</a>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}    
+    </ul> 
+    <button type="button" class="slider-nav "></button>
+    <button type="button" class="slider-nav slider-nav-next "></button>
+    <div class="slider-indicators">
+        <button class=" active"></button>
+        <button ></button>
+        <button ></button>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+{% load crispy_forms_tags %}
+
+ <div class="container text-center mb-5">
+    <div class="row g-2 justify-content-between  mt-5">
+      <div class="col-5 border">
+        <div class="p-2">
+            <img style="" src="{{ tution.image.url }}" class="card-img-top" alt="car-image">
+        </div>
+      </div>
+      <div class="col-5 border">
+        <div class="p-2">
+            <h3 class="card-title p-2">Name: {{ tution.name}}</h3>
+            <h3 class="card-title h5 p-2">Education: {{ tution.education}}</h3>
+            <h5 class="card-title p-2">Teaching Experience: {{ tution.teaching_experience}}</h5>
+            <h5 class="card-title p-2">Fees: {{ tution.fee}}TK</h5>
+            <h5 class="card-title p-2">Email: {{ tution.user.email}}</h5>
+            <h6 class="card-title p-2">Number: {{ tution.number}}</h6>
+            <small> <b> Teaching Subject : {{tution.subject}} </b></small>
+            <br>
+            <h5>Teching Class: 
+              {% for category in tution.class_category.all %}
+              <a class='btn h6 '>{{category.name}},</a>
+              {% endfor %}
+            </h5>
+        </br>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'applyfortution' tution.id %}" class="btn btn-sm mx-2 btn-warning">Apply For Tution</a>
+            {% endif %}
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+
+
+<div  class="card  p-2">
+  <div style="width:80%; margin:auto;" class="card  p-2">
+      <h4>Total Reviews: {{ review|length }}</h4>
+      <div class="card-body">
+        {% for rev in review %}
+          <h5>Name : {{rev.name}}   </h5>
+          <p><b>Email</b>: {{rev.email}}</p>
+          <p>Review: {{rev.body}}</p>
+          <h5>Review: {{rev.rating}}</h5>
+          <small> {{rev.created_time}}</small>
+          <hr>
+        {% endfor %}
+        
+      </div>
+  </div>
+{% endblock content %}
