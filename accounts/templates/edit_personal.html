@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {%block content%}
- <div style="width:50%; margin:auto;">
+ <div style="width:50%; background:#EEF5FF; padding:50px; margin:auto;">
 <form  method="post" class="uniForm" novalidate>
     {% csrf_token %}
     {{ form|crispy }}

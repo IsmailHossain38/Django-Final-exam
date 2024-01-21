@@ -28,7 +28,7 @@
 
 
   .box-shadows {
-    width:50%;
+    
     box-shadow: 5px 8px 6px rgba(0, 0, 0, 0.1); /* Adjust the values based on your preference */
     /* Other styles for your card */
   }
@@ -40,6 +40,7 @@
 background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
+
 width: 100%;
 ">
   <div class="top-part  p-5 mb-5  container d-flex justify-content-between">
@@ -51,6 +52,24 @@ width: 100%;
           <img class="bouncing-image " src="{% static 'tution.png' %}" alt="tution-img" />
 
       </div>
+  </div>
+</div>
+
+
+<div class="">
+  <h1 class="text-primary  text-center">SEARCH TUTORING JOBS</h1>
+    <p class="text-secondary text-center border-bottom pb-2 ">Find Your Tution Jobs, in your area</p>
+    <div class="jobs-part container d-flex justify-content-between p-2">
+          <div>
+            <img class="bouncing-image p-3" src="{% static 'jobs.png' %}" alt="tution-img" />
+    
+          </div>
+        <div>
+            <h3 class="text-danger ps-5 mt-5">Looking for interesting tuition jobs to excel your teaching experience?</h3>
+            <p class="text-secondary p-5 h5 text-center">If teaching jobs interests you, then you are on the right place. tutorsheba.com, we often have 500+ open home tuition jobs that are genuine and 100% verified. Whether you are starting your career as a tuition teacher or an expert in your field, we can help you find your next big tuition job. You can search and apply to the tuition jobs that best fit your skills, favorable location, class and subjects.</p>
+        </div>
+        
+    </div>
   </div>
 </div>
 
@@ -87,14 +106,14 @@ width: 100%;
 
 
 <div style="background:#EEF5FF;">
-  <div class="swiffy-slider slider-item-show3 slider-nav-round slider-nav-outside container border-bottom pb-3">
+  <div class="swiffy-slider slider-item-show3 slider-nav-round slider-nav-outside container border-bottom pb-5">
       <hr>
       <h2 class='text-center text-primary '>Tutors</h2>    
       <hr>
       <ul class="slider-container">           
           {% for dt in data %}
               <li class='m-auto text-center'>
-                  <div class="card mx-3 pt-3 text-dark">
+                  <div class="card box-shadows  mx-3 pt-3 text-dark">
                       <img src="{{dt.image.url}}" class="card-img-top m-auto rounded-0 " alt="car-image" style="max-width: 40%;height: 20%;">
                       <div class="card-body  ">
                           <h5 class="card-title">Tutor Name: {{dt.name}}</h5>
@@ -153,7 +172,7 @@ width: 100%;
     <h2 class="card-title text-primary text-center border-bottom mb-4 p-3">Tution Types</h2>
     <div class="row justify-content-between">
       <div class="col-4">
-        <div class="card anim" style="width: 18rem;">
+        <div class="card box-shadows anim" style="width: 18rem;">
           <img class="card-img-top" src="{% static 'online.jpg' %}"  alt="online-img">
           <div class="card-body">
             <h5 class="card-title text-center">Online Tutoring</h5>
@@ -163,7 +182,7 @@ width: 100%;
         </div>
       </div>
       <div class="col-4">
-        <div class="card anim" style="width: 18rem;">
+        <div class="card box-shadows anim" style="width: 18rem;">
           <img class="card-img-top" src="{% static 'home.jpg' %}" alt="home-img">
           <div class="card-body">
             <h5 class="card-title text-center">Home Tutoring</h5>
@@ -173,7 +192,7 @@ width: 100%;
         </div>
       </div>
       <div class="col-4">
-        <div class="card anim" style="width: 18rem;">
+        <div class="card box-shadows anim" style="width: 18rem;">
           <img class="card-img-top" src="{% static 'group.jpg' %}"  alt="group-img">
           <div class="card-body">
             <h5 class="card-title text-center">Group Tutoring</h5>
@@ -215,8 +234,8 @@ width: 100%;
 
 <div style="background:#EEF5FF; padding-bottom:30px;">
   <div class="works container mb-4 " >
-    <h2 class="text-center text-primary">How it's work ?</h2>
-    <div class="accordion" id="accordionExample">
+    <h2 class="text-center text-primary pt-3 pb-3">How it's work ?</h2>
+    <div class="accordion box-shadows " id="accordionExample">
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -256,7 +275,7 @@ width: 100%;
     </div>
     <br>
     <h2 class=" text-secondary">Here's how it works for Parents Students:</h2>
-    <div class="accordion" id="accordionExample">
+    <div class="accordion box-shadows " id="accordionExample">
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -299,7 +318,7 @@ width: 100%;
 
 
 
-<div class="card box-shadows  text-center mt-5 pt-5 container">
+<div class="card box-shadows  text-center mt-5 pt-5 container" style="width:50%;">
   <div class="card-header">
     Become Tutor
   </div>
