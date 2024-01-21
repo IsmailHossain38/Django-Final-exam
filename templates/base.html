@@ -20,9 +20,10 @@
     <body>
     
       <header class="banner">
-        <nav class="navbar navbar-expand-lg bg-primary  ">
+        <nav class="navbar navbar-expand-lg bg-primary  mb-5 ">
           <div class="container-fluid">
-            <a class="navbar-brand text-light" href="#">TutionZone</a>
+            <img class=" " width="70px" src="{% static 'logo.png'%}" alt="logo" />
+            <a class="navbar-brand text-light ms-2" href="#">TutionZone</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -35,10 +36,10 @@
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   {% if user.is_authenticated %}
                   <li class="nav-item me-3">
-                      <a class="nav-link bg-success text-light" aria-current="page" href="{% url 'profile'%}">Profile</a>
+                      <a class="nav-link  text-light" aria-current="page" href="{% url 'profile'%}">Profile</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-light bg-danger" href="{% url 'logout' %}">Logout</a>
+                      <a class="nav-link text-light " href="{% url 'logout' %}">Logout</a>
                     </li>
                   {% else %}
                   <li class="nav-item">
@@ -52,7 +53,7 @@
             </div>
             <ul class="navbar-nav me-auto pe-5 mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link text-light bg-danger " href=""> Name : {{request.user.username}}</a>
+                <a class="nav-link text-light  " href=""> Name : {{request.user.username}}</a>
               </li>
             </ul>
           </div>
@@ -67,6 +68,40 @@
         {% block content %}
   
         {% endblock content %}
+
+        <footer class="p-5 mt-5 bg-primary text-light">
+          <div class="container w-75 m-auto row p-5 ">
+            <hr>
+              <div class="col-md-6">
+                  <h5>Follow US</h5>
+                  <p class="pe-5">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, </p>
+                  <div class="icons">
+                    <img class="icon" width="30px" src="{% static 'facebook.png'%}" alt="" />
+                    <img class="icon" width="30px" src="{% static 'linkedin.png'%}" alt="" />
+                    <img class="icon" width="30px" src="{% static 'twitter.png'%}" alt="" />
+                    <img class="icon" width="30px" src="{% static 'instagram.png'%}" alt="" />
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <h5>Types</h5>
+                  <li class="footer-li">Online Tution</li>
+                  <li class="footer-li">Home Tution</li>
+                  <li class="footer-li">Group Tution</li>
+                  <li class="footer-li">Offline Tution</li>
+              </div>
+              <div class="col-md-3">
+                  <h5>Support</h5>
+                  <li class="footer-li">Get Started</li>
+                  <li class="footer-li">Help Center</li>
+                  <li class="footer-li">Service Stutes</li>
+                  <li class="footer-li">Blog</li>
+              </div>
+          </div>
+          <hr />
+          <p class="text-center mt-3">
+              <small>Designer : Ismail Hossan</small>
+          </p>
+        </footer>
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
