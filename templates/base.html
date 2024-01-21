@@ -14,32 +14,41 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto:ital@0;1&display=swap" rel="stylesheet">
         {% load static %}
         <link href="{% static 'style.css' %}" rel="stylesheet"/>
     </head>
     <style>
-  
+      body{
+        font-family: 'Montserrat', sans-serif;
+font-family: 'Roboto', sans-serif;
+      }
+
       footer {
         margin-top: auto;
       }
   
       .footer-li {
-        list-style-type: none; /* Remove list bullets */
+        list-style-type: none;
       }
   
       .footer-li a {
-        text-decoration: none; /* Remove text decoration for links inside list items */
-        color: inherit; /* Use the default text color for links */
+        text-decoration: none; 
+        color: inherit;
       }
-  
+  nav{
+    background: linear-gradient(90deg,#540654,#cc0d85 50%,#540654 100%,#00d4ff 0);
+  }
       
     </style>
     <body>
     
       <header class="banner" style="padding-bottom:70px">
-        <nav class="navbar fixed-top navbar-expand-lg bg-primary"   >
+        <nav class="navbar fixed-top navbar-expand-lg text-light"   >
           <div class="container">
-            <img class=" " width="70px" src="{% static 'logo.png'%}" alt="logo" />
+            <img class=" text-light" width="70px" src="{% static 'logos.png'%}" alt="logo" />
             <a class="navbar-brand text-light ms-2" href="{% url 'homepage' %}">TutionZone</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -71,7 +80,7 @@
             {% if user.is_authenticated %}
             <ul class="navbar-nav me-auto pe-5 mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link text-light  " href=""> Name : {{request.user.username}}</a>
+                <a class="nav-link text-dark  " href=""> Name : {{request.user.username}}</a>
               </li>
             </ul>
             {% endif %}

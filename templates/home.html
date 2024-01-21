@@ -33,6 +33,10 @@
     /* Other styles for your card */
   }
 
+  .bg-color{
+    background: linear-gradient(90deg,#540654,#cc0d85 50%,#540654 100%,#00d4ff 0);
+  }
+
 
 </style>
 {% comment %} <h2 class="border-bottom text-center container text-primary pt-3">OUR TUTIONS</h2> {% endcomment %}
@@ -85,9 +89,9 @@ width: 100%;
       <ul class="slider-container">
         {% for dt in category %}
           <li class="border text-center p-3 mb-4">
-              <div class="form-check  bg-primary mx-2 ">
+              <div class="form-check   mx-2 " style="background: linear-gradient(90deg,#540654,#cc0d85 50%,#540654 100%,#00d4ff 0); border-radius:10px;">
                   <label class="form-check-label p-2" for="{{dt.id}}">
-                      <b><a href="{% url 'Category_slug' dt.slug %}" class="btn text-light ">{{dt.name}}</a></b>
+                      <b><a href="{% url 'Category_slug' dt.slug %}" style="font-size:20px;" class="btn text-light ">{{dt.name}}</a></b>
                   </label>
               </div>
             </li>
@@ -123,7 +127,7 @@ width: 100%;
                           <small>Fees : {{dt.fee}}</small>
                           <br>
                           <br>
-                          <a href="{% url 'details' dt.id %}" class="btn btn-sm mb-2 btn-primary">About Tutor</a>
+                          <a width="100%" href="{% url 'details' dt.id %}" style="font-size:20px;" class="btn bg-color pe-5 ps-5  mb-2 text-light">About Tutor</a>
                       </div>
                   </div>
               </li>
@@ -145,12 +149,12 @@ width: 100%;
 
   <div class="swiffy-slider slider-item-show4 slider-item-reveal pt-4 border-top slider-nav-round slider-nav-dark">
     <ul class="slider-container">
-      <li class="border text-center p-3">Math</li>
-      <li class="border text-center p-3">English</li>
-      <li class="border text-center p-3">Physics</li>
-      <li class="border text-center p-3">Chemistry</li>
-      <li class="border text-center p-3">Accounting</li>
-      <li class="border text-center p-3">Management</li>
+      <li class="border text-center p-3" style="font-size:30px;">Math</li>
+      <li class="border text-center p-3" style="font-size:30px;">English</li>
+      <li class="border text-center p-3" style="font-size:30px;">Physics</li>
+      <li class="border text-center p-3" style="font-size:30px;">Chemistry</li>
+      <li class="border text-center p-3" style="font-size:30px;">Accounting</li>
+      <li class="border text-center p-3" style="font-size:30px;">Management</li>
     </ul>
   
     <button type="button" class="slider-nav"></button>
