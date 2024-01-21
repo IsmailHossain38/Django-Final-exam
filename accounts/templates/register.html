@@ -3,7 +3,7 @@
 {% load static %}
 
 {%block content%}
-<div style="width:50%; margin:auto;">
+<div style="width:50%; background:#EEF5FF; margin:auto; padding:50px;">
 <form  method="post" class="uniForm" novalidate>
     {% csrf_token %}
     {{form|crispy}}

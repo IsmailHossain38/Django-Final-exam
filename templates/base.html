@@ -17,13 +17,30 @@
         {% load static %}
         <link href="{% static 'style.css' %}" rel="stylesheet"/>
     </head>
+    <style>
+  
+      footer {
+        margin-top: auto;
+      }
+  
+      .footer-li {
+        list-style-type: none; /* Remove list bullets */
+      }
+  
+      .footer-li a {
+        text-decoration: none; /* Remove text decoration for links inside list items */
+        color: inherit; /* Use the default text color for links */
+      }
+  
+      
+    </style>
     <body>
     
-      <header class="banner">
-        <nav class="navbar navbar-expand-lg bg-primary  mb-5 ">
-          <div class="container-fluid">
+      <header class="banner" style="padding-bottom:70px">
+        <nav class="navbar fixed-top navbar-expand-lg bg-primary"   >
+          <div class="container">
             <img class=" " width="70px" src="{% static 'logo.png'%}" alt="logo" />
-            <a class="navbar-brand text-light ms-2" href="#">TutionZone</a>
+            <a class="navbar-brand text-light ms-2" href="{% url 'homepage' %}">TutionZone</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -43,19 +60,21 @@
                     </li>
                   {% else %}
                   <li class="nav-item">
-                    <a class="nav-link text-light bg-success" aria-current="page" href="{% url 'login' %}">Login</a>
+                    <a class="nav-link text-light me-2" aria-current="page" href="{% url 'login' %}">Login</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-light bg-danger" href="{% url 'register' %}">Signup</a>
+                    <a class="nav-link text-light" href="{% url 'register' %}">Signup</a>
                   </li>
                   {%endif%}
                 </ul>
             </div>
+            {% if user.is_authenticated %}
             <ul class="navbar-nav me-auto pe-5 mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link text-light  " href=""> Name : {{request.user.username}}</a>
               </li>
             </ul>
+            {% endif %}
           </div>
       </nav>
       </header>
@@ -69,27 +88,28 @@
   
         {% endblock content %}
 
-        <footer class="p-5 mt-5 bg-primary text-light">
+        <footer class=" mt-5 mb-0 p-5 text-dark bottom" style="background:#EEF5FF;">
           <div class="container w-75 m-auto row p-5 ">
             <hr>
-              <div class="col-md-6">
+              <div class="col-md-6 mb-3">
                   <h5>Follow US</h5>
-                  <p class="pe-5">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, </p>
-                  <div class="icons">
+                  
+                  <div class="icons mt-3">
                     <img class="icon" width="30px" src="{% static 'facebook.png'%}" alt="" />
                     <img class="icon" width="30px" src="{% static 'linkedin.png'%}" alt="" />
                     <img class="icon" width="30px" src="{% static 'twitter.png'%}" alt="" />
                     <img class="icon" width="30px" src="{% static 'instagram.png'%}" alt="" />
                   </div>
+                  <p class="pe-5 pb-5 pt-5 ">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, </p>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-3 mb-3">
                   <h5>Types</h5>
                   <li class="footer-li">Online Tution</li>
                   <li class="footer-li">Home Tution</li>
                   <li class="footer-li">Group Tution</li>
                   <li class="footer-li">Offline Tution</li>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-3 mb-3">
                   <h5>Support</h5>
                   <li class="footer-li">Get Started</li>
                   <li class="footer-li">Help Center</li>

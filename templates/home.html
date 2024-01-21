@@ -1,18 +1,60 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+<style>
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-20px);
+    }
+    60% {
+      transform: translateY(-10px);
+    }
+  }
 
+  .bouncing-image {
+    animation: bounce 1s infinite;
+  }
+
+  .anim {
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .anim:hover {
+    transform: scale(1.1);
+  }
+
+
+  .box-shadows {
+    width:50%;
+    box-shadow: 5px 8px 6px rgba(0, 0, 0, 0.1); /* Adjust the values based on your preference */
+    /* Other styles for your card */
+  }
+
+
+</style>
 {% comment %} <h2 class="border-bottom text-center container text-primary pt-3">OUR TUTIONS</h2> {% endcomment %}
-<div class="top-part mt-5 pt-5 mb-5  container d-flex justify-content-between">
-    
-    <div class="top-part1 p-3">
-        <h1 class="text-primary text-center">OUR POPULAR TUTION <strong class='text-danger'>PLATFORM</strong> </h1>
-        <p class="text-secondary text-center">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less normal distribution <br> of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.  </p>
-    </div>
-    <div class="top-part2 p-3">
-        <img src="{% static 'tution.jpg' %}" alt="tution-img" />
-    </div>
+<div style="background-image: url({% static 'bg.PNG'%});
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+width: 100%;
+">
+  <div class="top-part  p-5 mb-5  container d-flex justify-content-between">
+      <div class="top-part1 p-3">
+          <h1 class="text-primary ">OUR POPULAR TUTION <strong class='text-danger'>PLATFORM</strong> </h1>
+          <p class="text-secondary ">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less normal distribution <br> of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.  </p>
+      </div>
+      <div class="top-part2 p-3">
+          <img class="bouncing-image " src="{% static 'tution.png' %}" alt="tution-img" />
+
+      </div>
+  </div>
 </div>
+
+
 
 
 
@@ -20,46 +62,62 @@
 
 <div class=" container text-center mt-4">
     <h3 class="text-primary"> Classes</h3><hr>
-    <div class="row row-cols-auto">
+    <div class="swiffy-slider slider-item-show4 slider-item-reveal pt-4 border-top slider-nav-round slider-nav-dark">
+      <ul class="slider-container">
         {% for dt in category %}
-        <div class="form-check  bg-danger mx-2 ">
-            <label class="form-check-label p-2" for="{{dt.id}}">
-                <b><a href="{% url 'Category_slug' dt.slug %}" class="btn text-light ">{{dt.name}}</a></b>
-            </label>
-        </div>
+          <li class="border text-center p-3 mb-4">
+              <div class="form-check  bg-primary mx-2 ">
+                  <label class="form-check-label p-2" for="{{dt.id}}">
+                      <b><a href="{% url 'Category_slug' dt.slug %}" class="btn text-light ">{{dt.name}}</a></b>
+                  </label>
+              </div>
+            </li>
         {% endfor %}
+      </ul>
+      <button type="button" class="slider-nav"></button>
+      <button type="button" class="slider-nav slider-nav-next"></button>
+    
+      <div class="slider-indicators">
+        <button class="active"></button>
+        <button></button>
+        <button></button>
+      </div>
     </div>
 </div>
-<div class="swiffy-slider slider-item-show3 container border-bottom pb-3">
-    <hr>
-    <h2 class='text-center text-primary '>Tutors</h2>    
-    <hr>
-    <ul class="slider-container">           
-        {% for dt in data %}
-            <li class='m-auto text-center'>
-                <div class="card mx-3 pt-3 text-dark">
-                    <img src="{{dt.image.url}}" class="card-img-top m-auto rounded-0 " alt="car-image" style="max-width: 40%;height: 20%;">
-                    <div class="card-body  ">
-                        <h5 class="card-title">Tutor Name: {{dt.name}}</h5>
-                        <p class="card-text title ">Education : {{dt.education}}</p>
-                        <small>Teaching Experience : {{dt.teaching_experience}}</small><br>
-                        <small> <b> Teaching Subject : {{dt.subject}} </b></small><br>
-                        <small>Fees : {{dt.fee}}</small>
-                        <br>
-                        <br>
-                        <a href="{% url 'details' dt.id %}" class="btn btn-sm mb-2 btn-primary">About Tutor</a>
-                    </div>
-                </div>
-            </li>
-        {% endfor %}    
-    </ul> 
-    <button type="button" class="slider-nav "></button>
-    <button type="button" class="slider-nav slider-nav-next "></button>
-    <div class="slider-indicators">
-        <button class=" active"></button>
-        <button ></button>
-        <button ></button>
-    </div>
+
+
+<div style="background:#EEF5FF;">
+  <div class="swiffy-slider slider-item-show3 slider-nav-round slider-nav-outside container border-bottom pb-3">
+      <hr>
+      <h2 class='text-center text-primary '>Tutors</h2>    
+      <hr>
+      <ul class="slider-container">           
+          {% for dt in data %}
+              <li class='m-auto text-center'>
+                  <div class="card mx-3 pt-3 text-dark">
+                      <img src="{{dt.image.url}}" class="card-img-top m-auto rounded-0 " alt="car-image" style="max-width: 40%;height: 20%;">
+                      <div class="card-body  ">
+                          <h5 class="card-title">Tutor Name: {{dt.name}}</h5>
+                          <p class="card-text title ">Education : {{dt.education}}</p>
+                          <small>Teaching Experience : {{dt.teaching_experience}}</small><br>
+                          <small> <b> Teaching Subject : {{dt.subject}} </b></small><br>
+                          <small>Fees : {{dt.fee}}</small>
+                          <br>
+                          <br>
+                          <a href="{% url 'details' dt.id %}" class="btn btn-sm mb-2 btn-primary">About Tutor</a>
+                      </div>
+                  </div>
+              </li>
+          {% endfor %}    
+      </ul> 
+      <button type="button" class="slider-nav "></button>
+      <button type="button" class="slider-nav slider-nav-next "></button>
+      <div class="slider-indicators">
+          <button class=" active"></button>
+          <button ></button>
+          <button ></button>
+      </div>
+  </div>
 </div>
 
 <div class="subjects container mt-5">
@@ -68,176 +126,180 @@
 
   <div class="swiffy-slider slider-item-show4 slider-item-reveal pt-4 border-top slider-nav-round slider-nav-dark">
     <ul class="slider-container">
-        <li class="border text-center p-3">Math</li>
-        <li class="border text-center p-3">English</li>
-        <li class="border text-center p-3">Physics</li>
-        <li class="border text-center p-3">Chemistry</li>
-        <li class="border text-center p-3">Accounting</li>
-        <li class="border text-center p-3">Management</li>
-      
+      <li class="border text-center p-3">Math</li>
+      <li class="border text-center p-3">English</li>
+      <li class="border text-center p-3">Physics</li>
+      <li class="border text-center p-3">Chemistry</li>
+      <li class="border text-center p-3">Accounting</li>
+      <li class="border text-center p-3">Management</li>
     </ul>
-
+  
     <button type="button" class="slider-nav"></button>
     <button type="button" class="slider-nav slider-nav-next"></button>
-
+  
     <div class="slider-indicators">
-        <button class="active"></button>
-        <button></button>
-        <button></button>
+      <button class="active"></button>
+      <button></button>
+      <button></button>
     </div>
-</div>
+  </div>
+
 
 </div>
 
 {% comment %} tution types {% endcomment %}
-<div class="Tution-types mt-5 pt-5 mb-5  container">
-  <h2 class="card-title text-primary text-center border-bottom mb-4 p-3">Tution Types</h2>
-  <div class="row justify-content-between">
-    <div class="col-4">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{% static 'online.jpg' %}"  alt="online-img">
-        <div class="card-body">
-          <h5 class="card-title text-center">Online Tutoring</h5>
-          <p class="card-text text-center">Connect with the best tutors from anywhere and take online classes by <br> using different tools Make your life more easier with this process.</p>
-          
+<div style="background:#EEF5FF;" class="pb-2">
+  <div class="Tution-types mt-5 pt-5 mb-5  container">
+    <h2 class="card-title text-primary text-center border-bottom mb-4 p-3">Tution Types</h2>
+    <div class="row justify-content-between">
+      <div class="col-4">
+        <div class="card anim" style="width: 18rem;">
+          <img class="card-img-top" src="{% static 'online.jpg' %}"  alt="online-img">
+          <div class="card-body">
+            <h5 class="card-title text-center">Online Tutoring</h5>
+            <p class="card-text text-center">Connect with the best tutors from anywhere and take online classes by <br> using different tools Make your life more easier with this process.</p>
+            
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-4">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{% static 'home.jpg' %}" alt="home-img">
-        <div class="card-body">
-          <h5 class="card-title text-center">Home Tutoring</h5>
-          <p class="card-text text-center">It's a unique opportunity to learn in the home with your expected future in different categories everything is in favor of your need</p>
-          
+      <div class="col-4">
+        <div class="card anim" style="width: 18rem;">
+          <img class="card-img-top" src="{% static 'home.jpg' %}" alt="home-img">
+          <div class="card-body">
+            <h5 class="card-title text-center">Home Tutoring</h5>
+            <p class="card-text text-center">It's a unique opportunity to learn in the home with your expected future in different categories everything is in favor of your need</p>
+            
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-4">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{% static 'group.jpg' %}"  alt="group-img">
-        <div class="card-body">
-          <h5 class="card-title text-center">Group Tutoring</h5>
-          <p class="card-text text-center">A group of students can full fill their hunger for learning within more affordable tuition fees. <br>Get the opportunity of knowledge sharing and ready for competitive world!</p>
-          
+      <div class="col-4">
+        <div class="card anim" style="width: 18rem;">
+          <img class="card-img-top" src="{% static 'group.jpg' %}"  alt="group-img">
+          <div class="card-body">
+            <h5 class="card-title text-center">Group Tutoring</h5>
+            <p class="card-text text-center">A group of students can full fill their hunger for learning within more affordable tuition fees. <br>Get the opportunity of knowledge sharing and ready for competitive world!</p>
+            
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class='intotal-details pt-3 mb-5 align-item-center text-center d-flex justify-content-between' style="background-image: url({% static 'banner.jpg'%});
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-height: 200px;
-width: 100%;
-
+<div class='intotal-details pt-3 mb-5 align-items-center text-center d-flex justify-content-between' style="
+  background-image: url({% static 'total.jpg' %});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 200px;
+  opacity: 0.8;
+  width: 100%;
 ">
-  <div class="p-4 container">
-    <h3 class="text-white">3900+</h3>
-    <h2 class="text-white">Total Applied</h2>
+  <div class="p-4 container text-light">
+    <h3 class="display-4 mb-4">3900+</h3>
+    <h2>Total Applied</h2>
   </div>
-  <div class="p-4 container">
-    <h3 class="text-white">1000+</h3>
-    <h2 class="text-white">Total Tutors</h2>
+  <div class="p-4 container text-light">
+    <h3 class="display-4 mb-4">1000+</h3>
+    <h2>Total Tutors</h2>
   </div>
-  <div class="p-4 container">
-    <h3 class="text-white">2000+</h3>
-    <h2 class="text-white">Live Tuition Jobs</h2>
+  <div class="p-4 container text-light">
+    <h3 class="display-4 mb-4">2000+</h3>
+    <h2>Live Tuition Jobs</h2>
   </div>
-  <div class="p-4 container">
-    <h3 class="text-white">4.3</h3>
-    <h2 class="text-white">Average Tutor Rating</h2>
-  </div>
-
-</div>
-
-<div class="works container ">
-  <h2 class="text-center text-primary">How it's work ?</h2>
-  <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Create Tutor Profile
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          Become a teacher by creating your profile here and tell us about yourself, your skills, subject expertise, qualifications, teaching ability and experience. Be sure to provide as much information as you can in your profile so that we can speed up the verification process and your profile starts showing up in the right spot when parents and students are searching for home tutors on our website.
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Apply for jobs
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          Once your profile is complete, you can start browsing our latest TUITION JOBS page and start applying for the tuition jobs that best fits your skills, favorable location, class and subjects.
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Get free Tutoring job alert
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          Get updated tutoring jobs alerts via SMS/CALL whenever new jobs are posted.
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <h2 class=" text-secondary">Here's how it works for Parents Students:</h2>
-  <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          search for tutor
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          Search from our huge database of home tutors matching your needs and if you need help, you can post your tuition requirement here for free. One of our team member will get in touch with you soon over the phone to discuss and confirm your requirements.
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Get one to one demo session for free
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          Once we have identified a perfect home tutor for you that matches your tuition requirement, we will arrange a one day demo session with the tutor at your preferred location.
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Hire your Tutor
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          If you like the demo session, you continue with the same teacher .In case, If you do not like the demo session, we will arrange a new teacher for you
-        </div>
-      </div>
-    </div>
+  <div class="p-4 container text-light">
+    <h3 class="display-4 mb-4">4.3</h3>
+    <h2>Average Tutor Rating</h2>
   </div>
 </div>
 
+<div style="background:#EEF5FF; padding-bottom:30px;">
+  <div class="works container mb-4 " >
+    <h2 class="text-center text-primary">How it's work ?</h2>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Create Tutor Profile
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            Become a teacher by creating your profile here and tell us about yourself, your skills, subject expertise, qualifications, teaching ability and experience. Be sure to provide as much information as you can in your profile so that we can speed up the verification process and your profile starts showing up in the right spot when parents and students are searching for home tutors on our website.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Apply for jobs
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            Once your profile is complete, you can start browsing our latest TUITION JOBS page and start applying for the tuition jobs that best fits your skills, favorable location, class and subjects.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Get free Tutoring job alert
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            Get updated tutoring jobs alerts via SMS/CALL whenever new jobs are posted.
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <h2 class=" text-secondary">Here's how it works for Parents Students:</h2>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            search for tutor
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            Search from our huge database of home tutors matching your needs and if you need help, you can post your tuition requirement here for free. One of our team member will get in touch with you soon over the phone to discuss and confirm your requirements.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Get one to one demo session for free
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            Once we have identified a perfect home tutor for you that matches your tuition requirement, we will arrange a one day demo session with the tutor at your preferred location.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Hire your Tutor
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            If you like the demo session, you continue with the same teacher .In case, If you do not like the demo session, we will arrange a new teacher for you
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-<div class="card text-center mt-5 pt-5 container">
+
+<div class="card box-shadows  text-center mt-5 pt-5 container">
   <div class="card-header">
     Become Tutor
   </div>
