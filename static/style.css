@@ -6,3 +6,18 @@ body {
 .navbar {
     background-color: rgba(255, 255, 255, 0.8);
 }
+
+footer {
+    padding: 50px;
+    background: linear-gradient(66deg, #01bce6 -5.25%, #439FA5 46.76%, #4C7D8C 98.77%);
+    ;
+    color: white;
+    margin-top: 50px;
+}
+
+
+/* .top-part {
+    display: flex;
+    text-align: center;
+    align-items: center;
+} */

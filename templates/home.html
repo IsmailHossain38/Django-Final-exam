@@ -1,5 +1,23 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
+
+<h2 class="border-bottom text-center container text-primary pt-3">OUR TUTIONS</h2>
+<div class="top-part mt-5 pt-5 mb-5  container d-flex justify-content-between">
+    
+    <div class="top-part1 p-3">
+        <h1 class="text-primary">OUR POPULAR TUTION PLATFORM</h1>
+        <p class="title">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less normal distribution <br> of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.  </p>
+    </div>
+    <div class="top-part2 p-3">
+        <img src="{% static 'tution.jpg' %}" alt="tution-img" />
+    </div>
+</div>
+
+
+
+
+
 <div class=" container text-center mt-4">
     <h3 class="text-primary"> Classes</h3><hr>
     <div class="row row-cols-auto">
@@ -43,4 +61,86 @@
         <button ></button>
     </div>
 </div>
+
+
+<div class="Tution-types mt-5 pt-5 mb-5  container">
+
+  <h2 class="text-center border-bottom p-3 mt-5 text-primary">Tution Types</h2>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="{% static 'home.jpg' %}" class="d-block w-100 opacity-75" alt="home-tution-img">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="text-light  bg-primary border-4">Home Tutoring</h5>
+              <p class="text-light bg-primary align-item-center">It's a unique opportunity to learn in the home with your expected future in different categories everything is in favor of your need</p>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="{% static 'online.jpg' %}" class="d-block w-100 opacity-75" alt="online-tution-img">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="text-light  bg-primary border-4">Online Tutoring</h5>
+              <p class="text-light bg-primary align-item-center">Connect with the best tutors from anywhere and take online classes by <br> using different tools Make your life more easier with this process.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'group.jpg' %}" class="d-block w-100 opacity-75" alt="group-tution-img">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="text-light  bg-primary border-4">Group Tutoring</h5>
+              <p class="text-light bg-primary align-item-center">A group of students can full fill their hunger for learning within more affordable tuition fees. <br>Get the opportunity of knowledge sharing and ready for competitive world!</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+</div>
+
+
+<footer class="p-5">
+  <div class="container w-75 m-auto row p-5 ">
+    <hr>
+      <div class="col-md-6">
+          <h5>Follow US</h5>
+          <div class="icons">
+            <img class="icon" width="30px" src="{% static 'facebook.png'%}" alt="" />
+            <img class="icon" width="30px" src="{% static 'linkedin.png'%}" alt="" />
+            <img class="icon" width="30px" src="{% static 'twitter.png'%}" alt="" />
+            <img class="icon" width="30px" src="{% static 'instagram.png'%}" alt="" />
+          </div>
+      </div>
+      <div class="col-md-3">
+          <h5>Types</h5>
+          <li class="footer-li">Online Tution</li>
+          <li class="footer-li">Home Tution</li>
+          <li class="footer-li">Group Tution</li>
+          <li class="footer-li">Offline Tution</li>
+      </div>
+      <div class="col-md-3">
+          <h5>Support</h5>
+          <li class="footer-li">Get Started</li>
+          <li class="footer-li">Help Center</li>
+          <li class="footer-li">Service Stutes</li>
+          <li class="footer-li">Blog</li>
+      </div>
+  </div>
+  <hr />
+  <p class="text-center mt-3">
+      <small>Designer : Isamil Hossan</small>
+  </p>
+</footer>
+
+
+
+
 {% endblock content %}
