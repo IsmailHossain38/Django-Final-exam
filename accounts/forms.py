@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 from django import forms
 from .models import UserInformation
 class RegistrationForm(UserCreationForm):
-    date_of_birth = forms.DateField(widget=forms.DateInput(attrs={'type':'date'}))
-    qualification = forms.CharField(max_length=100)
-    number = forms.CharField(max_length=12)
+    date_of_birth = forms.DateField(widget=forms.DateInput(attrs={'type':'date'}) ,required=True)
+    qualification = forms.CharField(max_length=100 ,required=True)
+    number = forms.CharField(max_length=12 ,required=True)
     class Meta:
         model = User
         fields =['username','first_name','last_name','email']

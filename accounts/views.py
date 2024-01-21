@@ -49,7 +49,7 @@ def register(request):
             email.attach_alternative(email_body, "text/html")
             email.send()
             return HttpResponse("Check your mail for confirmation")
-        return HttpResponse(f"{form.errors} has already exists." )
+        return HttpResponse(f"{form.errors}" )
     else:
         form =forms.RegistrationForm()
     return render(request,'register.html',{'form':form})
