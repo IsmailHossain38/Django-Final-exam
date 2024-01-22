@@ -12,6 +12,7 @@ from django.utils.encoding import force_bytes
 from django.core.mail import EmailMultiAlternatives
 from django.contrib.auth.forms import   PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponse
 from django.views.generic import ListView
 from tution.models import AddTutors
 from django.contrib.auth.decorators import login_required
