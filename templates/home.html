@@ -19,7 +19,7 @@
   }
 
   .anim {
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.1s ease-in-out;
   }
 
   .anim:hover {
@@ -35,6 +35,12 @@
 
   .bg-color{
     background: linear-gradient(90deg,#540654,#cc0d85 50%,#540654 100%,#00d4ff 0);
+  }
+
+  .p-size{
+    font-size:14px;
+    font-weight: 500;
+    line-height: 22px;
   }
 
 
@@ -169,33 +175,42 @@ width: 100%;
 <div style="background:#EEF5FF;" class="pb-2">
   <div class="Tution-types mt-5 pt-5 mb-5  container">
     <h2 class="card-title text-primary text-center border-bottom mb-4 p-3">Tution Types</h2>
-    <div class="row justify-content-between">
+    <div class="row justify-content-around">
       <div class="col-4">
-        <div class="card box-shadows anim" style="width: 18rem;">
+        <div class="card box-shadows anim" style="width: 23rem;">
           <img class="card-img-top" src="{% static 'online.jpg' %}"  alt="online-img">
           <div class="card-body">
-            <h5 class="card-title text-center">Online Tutoring</h5>
-            <p class="card-text text-center">Connect with the best tutors from anywhere and take online classes by <br> using different tools Make your life more easier with this process.</p>
+            <h5 class="card-title text-center h3 ">Online Tutoring </h5>
+            <article class="text-secondary text-center align-item-center border-bottom small">Are you left with any doubts?</article>
+            
+            
+            <p class="card-text text-center p-2 p-size">Connect with the best tutors from anywhere and take online classes by <br> using different tools Make your life more easier with this process.</p>
             
           </div>
         </div>
       </div>
       <div class="col-4">
-        <div class="card box-shadows anim" style="width: 18rem;">
+        <div class="card box-shadows anim" style="width: 23rem;">
           <img class="card-img-top" src="{% static 'home.jpg' %}" alt="home-img">
           <div class="card-body">
-            <h5 class="card-title text-center">Home Tutoring</h5>
-            <p class="card-text text-center">It's a unique opportunity to learn in the home with your expected future in different categories everything is in favor of your need</p>
+            <h5 class="card-title text-center h3 ">Home Tutoring</h5>
+            <article class="text-secondary text-center align-item-center border-bottom small">Looking for one-to-one classes?</article>
+            <br>
+         
+            <p class="card-text text-center p-2 p-size">It's a unique opportunity to learn in the home with your expected future in different categories everything is in favor of your need</p>
             
           </div>
         </div>
       </div>
       <div class="col-4">
-        <div class="card box-shadows anim" style="width: 18rem;">
+        <div class="card box-shadows anim" style="width: 23rem;">
           <img class="card-img-top" src="{% static 'group.jpg' %}"  alt="group-img">
           <div class="card-body">
-            <h5 class="card-title text-center">Group Tutoring</h5>
-            <p class="card-text text-center">A group of students can full fill their hunger for learning within more affordable tuition fees. <br>Get the opportunity of knowledge sharing and ready for competitive world!</p>
+            <h5 class="card-title text-center h3 ">Group Tutoring</h5>
+            <article class="text-secondary text-center align-item-center border-bottom small">Need the Compititive and Effordable experience?</article>
+            <br>
+        
+            <p class="card-text text-center p-2 p-size">A group of students can full fill their hunger for learning within more affordable tuition fees. <br>Get the opportunity of knowledge sharing and ready for competitive world!</p>
             
           </div>
         </div>

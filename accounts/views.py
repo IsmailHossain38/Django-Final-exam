@@ -12,7 +12,6 @@ from django.utils.encoding import force_bytes
 from django.core.mail import EmailMultiAlternatives
 from django.contrib.auth.forms import   PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse
 from django.views.generic import ListView
 from tution.models import AddTutors
 from django.contrib.auth.decorators import login_required
@@ -48,7 +47,7 @@ def register(request):
             email = EmailMultiAlternatives(email_subject , '', to=[user.email])
             email.attach_alternative(email_body, "text/html")
             email.send()
-            return HttpResponse("Check your mail for confirmation")
+            messages.success(request,"Check Your Email for confirmation. After Confirming your email, you will be able to login.")
         return render(request,'register.html',{'form':form})
     else:
         form =forms.RegistrationForm()

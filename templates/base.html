@@ -92,7 +92,7 @@
 
         {%if messages%}
       {% for m in messages %}
-        <h4 class="text-light text-center bg-danger">{{m}}</h4>
+        <h4 class="text-light text-center p-3 bg-{{m.tags}}">{{m}}</h4>
       {% endfor %}
     {%endif%}
         {% block content %}
