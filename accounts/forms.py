@@ -2,34 +2,39 @@
 from django.contrib.auth.forms import UserCreationForm ,UserChangeForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import UserInformation
+from .models import UserInformation ,QUALIFICATION_CHOICES
+
+
+
+
 class RegistrationForm(UserCreationForm):
-    date_of_birth = forms.DateField(widget=forms.DateInput(attrs={'type':'date'}) ,required=True)
-    qualification = forms.CharField(max_length=100 ,required=True)
-    number = forms.CharField(max_length=12 ,required=True)
+    date_of_birth = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), required=True)
+    qualification = forms.ChoiceField(required=True, choices =QUALIFICATION_CHOICES)
+    number = forms.CharField(max_length=12, required=True)
+
     class Meta:
         model = User
-        fields =['username','first_name','last_name','email']
-        
+        fields = ['username', 'first_name', 'last_name', 'email']
+
     def save(self, commit=True):
-        our_user = super().save(commit=False) 
-        
-        if commit == True:
-            our_user.is_active = False
-            our_user.save() 
-            qualification = self.cleaned_data.get('qualification')
-            number = self.cleaned_data.get('number')
-            date_of_birth = self.cleaned_data.get('date_of_birth')
+        user = super().save(commit=False)
+
+        if commit:
+            user.is_active = False
+            user.save()
+
+            qualification = self.cleaned_data.get('qualification', '')
+            number = self.cleaned_data.get('number', '')
+            date_of_birth = self.cleaned_data.get('date_of_birth', '')
+
             UserInformation.objects.create(
-                user = our_user,
-                qualification  = qualification,
-                number = number,
-                date_of_birth =date_of_birth,
-                
+                user=user,
+                qualification=qualification,
+                number=number,
+                date_of_birth=date_of_birth,
             )
-            
-        
-        return our_user
+
+        return user
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
