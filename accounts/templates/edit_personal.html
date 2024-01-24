@@ -4,6 +4,7 @@
 
 {%block content%}
 <div style="width:50%; background:#EEF5FF; margin:auto; padding:50px;">
+  <h2 class="text-center h1 border-bottom pb-3">Edit Personal Information</h2>
 <form  method="post" class="uniForm" novalidate>
   {% csrf_token %}
   {% if form.non_field_errors %}

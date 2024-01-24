@@ -93,7 +93,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link text-light border-bottom" href="{% url 'homepage' %}">Home</a>
+                  <a class="nav-link text-light border-bottom ms-3" href="{% url 'homepage' %}">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-light p-2 ms-4" href="{% url 'contect_us' %}">Contect Us</a>
@@ -113,7 +113,7 @@
                   <a class="nav-link text-light " href="{% url 'logout' %}">Logout</a>
                 </li>
                 <li class="nav-item ms-5">
-                  <a class="nav-link text-light " href="#"> Name: {{request.user.username}}</a>
+                  <a class="nav-link text-light " href="{% url 'profile'%}"> Name: {{request.user.username}}</a>
                 </li>
               {% else %}
               <li class="nav-item">
@@ -139,7 +139,7 @@
         {% endblock content %}
 
 
-        <footer class="mt-5  pt-3 pb-2 text-light" >
+        <footer class="mt-5 mb-0 pt-5 pb-2 text-light" >
           <div class="container w-75 m-auto row">
               <hr>
               <div class="col-md-6">

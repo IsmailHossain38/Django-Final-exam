@@ -22,7 +22,7 @@ from tution.models import ApplicantForTutor
 # Create your views here.
 
 class UserLogin(LoginView):
-    template_name = 'register.html'
+    template_name = 'login.html'
     def form_valid(self, form):
         messages.success(self.request,"Logged in successfully")
         return super().form_valid(form)
@@ -108,7 +108,7 @@ def pass_change(request):
     
     else:
         form = PasswordChangeForm(user=request.user)
-    return render(request, 'edit_personal.html', {'form' : form})
+    return render(request, 'passchange.html', {'form' : form})
 
 
 def applyfortution(request, id):
