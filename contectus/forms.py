@@ -1,19 +1,13 @@
 from django import forms 
-from .models import AddTutors ,Review
-class AddTutorForm(forms.ModelForm):
+from .models import ContectUsModel
+class ContectUsForm(forms.ModelForm):
     class Meta:
-        model =AddTutors
-        fields ="__all__"
-        
-        
-class ReviewForm(forms.ModelForm):
-    class Meta:
-        model = Review
-        fields =['name','email','rating','body']
+        model = ContectUsModel
+        fields = "__all__"
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Enter your name '}),
             'email': forms.TextInput(attrs={'placeholder': 'Enter your email '}),
-            
+            'Number': forms.TextInput(attrs={'placeholder': 'Enter your number'}),
             'body': forms.Textarea(attrs={'placeholder': 'Tell us about yourself'}),
             
         }

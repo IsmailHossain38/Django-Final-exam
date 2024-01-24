@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('tution/', include('tution.urls')),
+    path('contectus/', include('contectus.urls')),
     path('', views.home , name ='homepage'),
     path('category/<slug:Category_slug>/', views.home , name= "Category_slug"),
     

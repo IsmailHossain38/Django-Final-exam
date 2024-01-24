@@ -1,3 +1,4 @@
+from typing import Any
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.views import LoginView 
@@ -52,7 +53,7 @@ def register(request):
         return render(request,'register.html',{'form':form})
     else:
         form =forms.RegistrationForm()
-    return render(request,'register.html',{'form':form})
+    return render(request,'register.html',{'form':form })
 
 def activate(request,uid64,token):
     try:
@@ -109,29 +110,48 @@ def pass_change(request):
         form = PasswordChangeForm(user=request.user)
     return render(request, 'edit_personal.html', {'form' : form})
 
-    
 
 def applyfortution(request, id):
     tutors = get_object_or_404(AddTutors, pk=id)
-    try:
-        informations = ApplicantForTutor.objects.get(user=request.user)
-    except ApplicantForTutor.DoesNotExist:
-        informations = ApplicantForTutor.objects.create(
-            tutors=tutors,
-            user=request.user,
-        )
-    if informations.admin_approval:
-        tutors.user = request.user
-        tutors.save()
-        messages.success(request, 'You got this Tuition!')
-        return redirect('profile')
-    else:
+    informations = ApplicantForTutor.objects.create(
+        tutors=tutors,
+        user=request.user,
+    )
+    informations.save()
+    if not informations.admin_approval:
         mail_sub = 'Applicant Confirmations'
-        message = render_to_string('applicant_pending.html', {'user': request.user})
+        message = render_to_string('applicant_pending.html', {'user': request.user ,'tutors':tutors})
         to_email = request.user.email
         send_mail = EmailMultiAlternatives(mail_sub, '', to=[to_email])
         send_mail.attach_alternative(message, 'text/html')
         send_mail.send()
-        messages.success(request, 'Your application has been successfully sent to admin. Now wait for admin approval.')
-
+        messages.success(request, f'The name of what you are applying for is {tutors.name} .Your application has been successfully sent to admin. Now wait for admin approval.')
         return redirect('profile')
+    
+    return redirect("homepage")
+    
+
+# def applyfortution(request, id):
+#     tutors = get_object_or_404(AddTutors, pk=id)
+#     # informations = ApplicantForTutor.objects.get(user=request.user)
+#     informations = ApplicantForTutor.objects.create(
+#         tutors=tutors,
+#         user=request.user,
+#     )
+#     # if informations.admin_approval:
+#     #     tutors.user = request.user
+#     #     tutors.save()
+#     #     messages.success(request, 'You got this Tuition!')
+#     #     return redirect('profile')
+#     # else:
+    
+#     if informations.admin_approval == False:
+#         mail_sub = 'Applicant Confirmations'
+#         message = render_to_string('applicant_pending.html', {'user': request.user})
+#         to_email = request.user.email
+#         send_mail = EmailMultiAlternatives(mail_sub, '', to=[to_email])
+#         send_mail.attach_alternative(message, 'text/html')
+#         send_mail.send()
+#         messages.success(request, 'Your application has been successfully sent to admin. Now wait for admin approval.')
+#         return redirect('profile')
+#     return redirect("homepage")

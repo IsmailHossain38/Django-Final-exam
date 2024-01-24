@@ -29,8 +29,8 @@
 
   .box-shadows {
     
-    box-shadow: 5px 8px 6px rgba(0, 0, 0, 0.1); /* Adjust the values based on your preference */
-    /* Other styles for your card */
+    box-shadow: 5px 8px 6px rgba(0, 0, 0, 0.1);
+    
   }
 
   .bg-color{
@@ -59,7 +59,7 @@ width: 100%;
           <p class="text-secondary ">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less normal distribution <br> of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.  </p>
       </div>
       <div class="top-part2 p-3">
-          <img class="bouncing-image " src="{% static 'tution.png' %}" alt="tution-img" />
+          <img class="" src="{% static 'tution.png' %}" alt="tution-img" />
 
       </div>
   </div>
@@ -71,7 +71,7 @@ width: 100%;
     <p class="text-secondary text-center border-bottom pb-2 ">Find Your Tution Jobs, in your area</p>
     <div class="jobs-part container d-flex justify-content-between p-2">
           <div>
-            <img class="bouncing-image p-3" src="{% static 'jobs.png' %}" alt="tution-img" />
+            <img class=" p-3" src="{% static 'jobs.png' %}" alt="tution-img" />
     
           </div>
         <div>
@@ -118,7 +118,7 @@ width: 100%;
       <ul class="slider-container">           
           {% for dt in data %}
               <li class='m-auto text-center'>
-                  <div class="card box-shadows  mx-3 pt-3 text-dark">
+                  <div class="card box-shadows  mx-3 pt-3 text-dark" style="width: 23rem; height:29rem;">
                       <img src="{{dt.image.url}}"  class="card-img-top m-auto rounded-0 " alt="car-image" style="width:150px;height: 180px;">
                       <div class="card-body  ">
                           <h5 class="card-title">Tutor Name: {{dt.name}}</h5>
@@ -177,8 +177,8 @@ width: 100%;
     <h2 class="card-title text-primary text-center border-bottom mb-4 p-3">Tution Types</h2>
     <div class="row justify-content-around">
       <div class="col-4">
-        <div class="card box-shadows anim" style="width: 23rem;">
-          <img class="card-img-top" src="{% static 'online.jpg' %}"  alt="online-img">
+        <div class="card box-shadows anim" style="width: 23rem;height:29rem;">
+          <img class="card-img-top" src="{% static 'online.jpg' %}"  alt="online-img" style="width:130px:height:140px;">
           <div class="card-body">
             <h5 class="card-title text-center h3 ">Online Tutoring </h5>
             <article class="text-secondary text-center align-item-center border-bottom small">Are you left with any doubts?</article>
@@ -190,8 +190,8 @@ width: 100%;
         </div>
       </div>
       <div class="col-4">
-        <div class="card box-shadows anim" style="width: 23rem;">
-          <img class="card-img-top" src="{% static 'home.jpg' %}" alt="home-img">
+        <div class="card box-shadows anim" style="width: 23rem;height:29rem;">
+          <img class="card-img-top" src="{% static 'home.jpg' %}" alt="home-img" style="width:130px:height:140px;">
           <div class="card-body">
             <h5 class="card-title text-center h3 ">Home Tutoring</h5>
             <article class="text-secondary text-center align-item-center border-bottom small">Looking for one-to-one classes?</article>
@@ -203,8 +203,8 @@ width: 100%;
         </div>
       </div>
       <div class="col-4">
-        <div class="card box-shadows anim" style="width: 23rem;">
-          <img class="card-img-top" src="{% static 'group.jpg' %}"  alt="group-img">
+        <div class="card box-shadows anim" style="width: 23rem;height:29rem;">
+          <img class="card-img-top" src="{% static 'group.jpg' %}"  alt="group-img" style="width:130px:height:140px;">
           <div class="card-body">
             <h5 class="card-title text-center h3 ">Group Tutoring</h5>
             <article class="text-secondary text-center align-item-center border-bottom small">Need the Compititive and Effordable experience?</article>
@@ -339,7 +339,7 @@ width: 100%;
   <div class="card-body">
     <h5 class="card-title">Want TO Become <span class='h3'>Tutor</span></h5>
     <p class="card-text">Let's Work Together Explore Opportunities</p>
-    <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+    <a href="{% url 'register' %}" class="btn bg-color text-light">Register</a>
   </div>
   
 </div>
