@@ -23,6 +23,38 @@
         <link href="{% static 'style.css' %}" rel="stylesheet"/>
     </head>
     <style>
+
+      .social-icon {
+        text-decoration: none;
+        color: inherit;
+        margin-right: 10px;
+    }
+
+    .social-icon:hover {
+        opacity: 0.8;
+    }
+
+    .list-unstyled {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-li {
+        margin-bottom: 5px;
+    }
+    footer{
+      background-image:url({% static 'footer.jpg'%});
+      {% comment %} background: linear-gradient(90deg,#540654,#cc0d85 50%,#540654 100%,#00d4ff 0);
+      border-top-left-radius: 100px;
+      border-top-right-radius: 100px;
+      border-bottom-right-radius: 100px;
+      border-bottom-left-radius: 100px; {% endcomment %}
+       background-repeat :no-repeat;
+      background-size:cover;
+      background-position:center;
+      color:white; 
+    }
+
       body{
         font-family: 'Montserrat', sans-serif;
         font-family: 'Roboto', sans-serif;
@@ -106,40 +138,48 @@
   
         {% endblock content %}
 
-        <footer class=" mt-5 mb-0 p-5 text-dark bottom" style="background:#EEF5FF;">
-          <div class="container w-75 m-auto row p-5 ">
-            <hr>
-              <div class="col-md-6 mb-3">
-                  <h5>Follow US</h5>
-                  
+
+        <footer class="mt-5  pt-3 pb-2 text-light" >
+          <div class="container w-75 m-auto row">
+              <hr>
+              <div class="col-md-6">
+                <img class="icon" width="90px" src="{% static 'logos.png'%}" alt="logo" />
+                <hr>
+                  {% comment %} <h3 style='font-size:20px; font-weight:bold; color:white;'>Follow Us</h3> {% endcomment %}
                   <div class="icons mt-3">
-                    <img class="icon" width="30px" src="{% static 'facebook.png'%}" alt="" />
-                    <img class="icon" width="30px" src="{% static 'linkedin.png'%}" alt="" />
-                    <img class="icon" width="30px" src="{% static 'twitter.png'%}" alt="" />
-                    <img class="icon" width="30px" src="{% static 'instagram.png'%}" alt="" />
+                    <h3 style='font-size:20px; font-weight:bold; color:white;'>Follow Us</h3>
+                      <a href="#" class="social-icon"><img class="icon" width="30px" src="{% static 'facebook.png'%}" alt="Facebook" /></a>
+                      <a href="#" class="social-icon"><img class="icon" width="30px" src="{% static 'linkedin.png'%}" alt="LinkedIn" /></a>
+                      <a href="#" class="social-icon"><img class="icon" width="30px" src="{% static 'twitter.png'%}" alt="Twitter" /></a>
+                      <a href="#" class="social-icon"><img class="icon" width="30px" src="{% static 'instagram.png'%}" alt="Instagram" /></a>
                   </div>
-                  <p class="pe-5 pb-5 pt-5 ">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, </p>
+                  <p class="pe-5 pb-5 pt-5">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
               </div>
               <div class="col-md-3 mb-3">
-                  <h5>Types</h5>
-                  <li class="footer-li">Online Tution</li>
-                  <li class="footer-li">Home Tution</li>
-                  <li class="footer-li">Group Tution</li>
-                  <li class="footer-li">Offline Tution</li>
+                  <h3 style='font-size:20px; font-weight:bold ;color:white;'>Types</h3>
+                  <ul class="list-unstyled" >
+                      <li class="footer-li">Online Tuition</li>
+                      <li class="footer-li">Home Tuition</li>
+                      <li class="footer-li">Group Tuition</li>
+        
+                  </ul>
               </div>
               <div class="col-md-3 mb-3">
-                  <h5>Support</h5>
-                  <li class="footer-li">Get Started</li>
-                  <li class="footer-li"><a class="nav-link text-dark " href="{% url 'contect_us' %}">Contect Us</a></li>
-                  <li class="footer-li"><a class="nav-link text-dark " href="{% url 'about_us' %}">About Us</a></li>
-                  <li class="footer-li">Blog</li>
+                  <h3 style='font-size:20px; font-weight:bold; color:white;'>Support</h3>
+                  <ul class="list-unstyled">
+                      <li class="footer-li">Get Started</li>
+                      <li class="footer-li"><a class="nav-link text-light" href="{% url 'contect_us' %}">Contact Us</a></li>
+                      <li class="footer-li"><a class="nav-link text-light" href="{% url 'about_us' %}">About Us</a></li>
+                      <li class="footer-li">Blog</li>
+                  </ul>
               </div>
           </div>
           <hr />
           <p class="text-center mt-3">
-              <small>Designer : Ismail Hossan</small>
+              <small>Designer: Ismail Hossan</small>
           </p>
-        </footer>
+      </footer>
+      
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
