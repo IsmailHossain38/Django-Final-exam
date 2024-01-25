@@ -8,7 +8,7 @@ Features
 4. Users can leave reviews for tuitions they have successfully acquired.
 
 
-<h3 align="center">A passionate frontend developer from India</h3>
+<h3 align="center">A passionate software developer from Bangladesh</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=ismailhossain38&label=Profile%20views&color=0e75b6&style=flat" alt="ismailhossain38" /> </p>
 
