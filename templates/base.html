@@ -43,16 +43,16 @@
         margin-bottom: 5px;
     }
     footer{
-      background-image:url({% static 'footer.jpg'%});
-      {% comment %} background: linear-gradient(90deg,#540654,#cc0d85 50%,#540654 100%,#00d4ff 0);
-      border-top-left-radius: 100px;
+      {% comment %} background-image:url({% static 'footer.jpg'%}); {% endcomment %}
+      background: linear-gradient(90deg,#540654,#cc0d85 50%,#540654 100%,#00d4ff 0);
+      {% comment %} border-top-left-radius: 100px;
       border-top-right-radius: 100px;
       border-bottom-right-radius: 100px;
-      border-bottom-left-radius: 100px; {% endcomment %}
+      border-bottom-left-radius: 100px; 
        background-repeat :no-repeat;
       background-size:cover;
       background-position:center;
-      color:white; 
+      color:white;  {% endcomment %}
     }
 
       body{
@@ -148,14 +148,14 @@
                   {% comment %} <h3 style='font-size:20px; font-weight:bold; color:white;'>Follow Us</h3> {% endcomment %}
                   <div class="icons mt-3">
                     <h3 style='font-size:20px; font-weight:bold; color:white;'>Follow Us</h3>
-                      <a href="#" class="social-icon"><img class="icon" width="30px" src="{% static 'facebook.png'%}" alt="Facebook" /></a>
-                      <a href="#" class="social-icon"><img class="icon" width="30px" src="{% static 'linkedin.png'%}" alt="LinkedIn" /></a>
-                      <a href="#" class="social-icon"><img class="icon" width="30px" src="{% static 'twitter.png'%}" alt="Twitter" /></a>
-                      <a href="#" class="social-icon"><img class="icon" width="30px" src="{% static 'instagram.png'%}" alt="Instagram" /></a>
+                      <a href="#" class="social-icon"><img class="icon" width="30px" src="{% static 'facebook1.png'%}" alt="Facebook" /></a>
+                      <a href="#" class="social-icon"><img class="icon" width="30px" src="{% static 'linkedin1.png'%}" alt="LinkedIn" /></a>
+                      <a href="#" class="social-icon"><img class="icon" width="30px" src="{% static 'twitter1.png'%}" alt="Twitter" /></a>
+                      <a href="#" class="social-icon"><img class="icon" width="30px" src="{% static 'instagram1.png'%}" alt="Instagram" /></a>
                   </div>
-                  <p class="pe-5 pb-5 pt-5">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
+                  <p class="pe-5 pb-5 pt-5">Tuition is a fee paid for instruction or teaching, usually for higher education. Many students need to get part-time jobs to pay their college tuition. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
               </div>
-              <div class="col-md-3 mb-3">
+              <div class="col-md-2 mb-3">
                   <h3 style='font-size:20px; font-weight:bold ;color:white;'>Types</h3>
                   <ul class="list-unstyled" >
                       <li class="footer-li">Online Tuition</li>
@@ -163,8 +163,15 @@
                       <li class="footer-li">Group Tuition</li>
         
                   </ul>
+                  <h3 style='font-size:20px; font-weight:bold; color:white;margin-top:30px;'>Services</h3>
+                  <ul class="list-unstyled">
+                     
+                      <li class="footer-li">Terms and Conditions</li>
+                      <li class="footer-li">Privecy Policy</li>
+                     
+                  </ul>
               </div>
-              <div class="col-md-3 mb-3">
+              <div class="col-md-2 mb-3">
                   <h3 style='font-size:20px; font-weight:bold; color:white;'>Support</h3>
                   <ul class="list-unstyled">
                       <li class="footer-li">Get Started</li>
@@ -172,10 +179,29 @@
                       <li class="footer-li"><a class="nav-link text-light" href="{% url 'about_us' %}">About Us</a></li>
                       <li class="footer-li">Blog</li>
                   </ul>
+                  <h3 style='font-size:20px; font-weight:bold; color:white; margin-top:30px;'>Company</h3>
+                  <ul class="list-unstyled">
+                     
+                      <li class="footer-li">Terms and Conditions</li>
+                      <li class="footer-li">Privecy Policy</li>
+                     
+                  </ul>
+                  
+              </div>
+              <div class="col-md-2 mb-3">
+                  <h3 style='font-size:20px; font-weight:bold; color:white;'>Products</h3>
+                  <ul class="list-unstyled">
+                     
+                      <li class="footer-li">Web</li>
+                      <li class="footer-li">App</li>
+                      <li class="footer-li">Software</li>
+                  </ul>
+                  
               </div>
           </div>
           <hr />
           <p class="text-center mt-3">
+              <small>Copyright © 2012 - 2024 TermsFeed®. All rights reserved.</small><br>
               <small>Designer: Ismail Hossan</small>
           </p>
       </footer>
