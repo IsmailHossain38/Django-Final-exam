@@ -10,3 +10,7 @@ def home(request ,Category_slug =None):
         class_category = CategoryByClasses.objects.get(slug = Category_slug)
         data = AddTutors.objects.filter(class_category=class_category)
     return render(request, 'home.html',{'data':data , 'category':form})
+
+def find_tutor(request):
+    data = AddTutors.objects.all()
+    return render(request, 'find_tutor.html',{'data':data})

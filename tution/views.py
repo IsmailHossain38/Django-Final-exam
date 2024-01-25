@@ -40,4 +40,6 @@ class TutorDetails(LoginRequiredMixin,DetailView):
         context['review_form'] = review_form
         # context['review'] = review
         return context
-    
+def find_tutor(request):
+    data = AddTutors.objects.all()
+    return render(request, 'tutor_detail/find_tutor.html',{'data':data})
