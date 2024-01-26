@@ -1,12 +1,16 @@
 
-Overview
-Tuition Media Platform is an online system designed to connect users with available tuition opportunities. The platform facilitates the interaction between administrators and users by providing functionalities for adding, editing, and deleting tuitions. Users can search for tuitions based on various filters, apply for them, and leave reviews after successfully securing a tuition.
-Features
-1. User Registration and Authentication
-2. Users can filter tuitions based on class.
-3. Users can apply for tuitions.
-4. Users can leave reviews for tuitions they have successfully acquired.
+<h3 align="left">Overview</h3>
 
+  Tuition Media Platform is an online system designed to connect users with available tuition opportunities. The platform facilitates the interaction between administrators and users by providing functionalities for adding, editing, and     
+  deleting tuitions. Users can search for tuitions based on various filters, apply for them, and leave reviews after successfully securing a tuition.
+  Features
+  1. User Registration and Authentication
+  2. Users can filter tuitions based on class.
+  3. Users can apply for tuitions.
+  4. Users can leave reviews for tuitions they have successfully acquired.
+
+<h3 align="left">Tech Stack</h3>
+   1. MVT (Model Views Templates)
 
 <h3 align="center">A passionate software developer from Bangladesh</h3>
 
@@ -24,6 +28,8 @@ Features
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
+  Email : ismailhossains383@gmail.com
+  Number: 01855498629
 </p>
 
 <h3 align="left">Languages and Tools:</h3>
@@ -32,3 +38,6 @@ Features
 <p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=ismailhossain38&show_icons=true&locale=en&layout=compact" alt="ismailhossain38" /></p>
 
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=ismailhossain38&show_icons=true&locale=en" alt="ismailhossain38" /></p>
+
+
+Thank you for checking out Tutionzone! We hope you find this project useful and enjoy your experience using it. If you have any questions or feedback, please don't hesitate to contact us.
