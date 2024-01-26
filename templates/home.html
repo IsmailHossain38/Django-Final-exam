@@ -339,7 +339,9 @@ width: 100%;
   <div class="card-body">
     <h5 class="card-title">Want TO Become <span class='h3'>Tutor</span></h5>
     <p class="card-text">Let's Work Together Explore Opportunities</p>
-    <a href="{% url 'register' %}" class="btn bg-color text-light">Register</a>
+    {% if not user.is_authenticated %}
+      <a href="{% url 'register' %}" class="btn bg-color text-light">Register</a>
+    {% endif %}
   </div>
   
 </div>
